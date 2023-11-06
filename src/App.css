@@ -10,7 +10,7 @@
   }
 }
 
-.App-header {
+.grid-container {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -21,3 +21,12 @@
   color: white;
 }
 
+button {
+color: black;
+padding: 0.5em
+}
+
+/* section {
+  display: flex;
+  flex-direction: grid;
+} */
