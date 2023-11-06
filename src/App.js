@@ -4,23 +4,35 @@ import { useState, useEffect } from 'react';
 
 function App() {
  
-  const [advice, setAdvice] = useState("null")
+  const [ubExcuse, setubExcuse] = useState("");
+  const [familyExcuse, setFamilyExcuse] = useState("");
 
-  
-  const handleAdvice = () => {
+  const handleGetUbExcuse = () => {
     axios.get("https://excuser-three.vercel.app/v1/excuse/unbelievable/").then((res) =>
-      setAdvice(res.data.excuse));
-  }
-   
+      setubExcuse(res.data[0].excuse));
+
+  };
+  
+  const handleGetFamilyExcuse = () => {
+    axios.get("https://excuser-three.vercel.app/v1/excuse/family/").then((res) =>
+      setFamilyExcuse(res.data[0].excuse));
+
+  };
+  
+    
+  useEffect(() => {
+    handleGetUbExcuse();
+    handleGetFamilyExcuse();
+  }, []); 
  
 
   return (
     <div className="App">
       <div className="container">
-        <button onClick={handleAdvice} >Get Advice</button>
-        <p>{ advice}</p>
+        <button onClick={handleGetUbExcuse} >Get ubExcuse</button>
+        <p>{ ubExcuse}</p>
       </div>
-    </div>
+      </div>
   );
 }
 
