@@ -1,6 +1,7 @@
 import axios from 'axios';
 import './App.css';
 import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
  
@@ -26,11 +27,7 @@ function App() {
 
   };
     
-  useEffect(() => {
-    handleGetUbExcuse();
-    handleGetFamilyExcuse();
-    handleGetFunnyExcuse(); 
-  }, []); 
+
  
 
   return (
